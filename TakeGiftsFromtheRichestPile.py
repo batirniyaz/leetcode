@@ -1,32 +1,18 @@
 import math
 
-gifts = [25, 64, 9, 4, 100]
 
-
-def findmax(gifts):
-    max_gift = 0
-    for gift in gifts:
-        if gift > max_gift:
-            max_gift = gift
-    for gift in gifts:
-        if gift == max_gift:
-            gifts.remove(gift)
-    pickGifts(gifts, max_gift)
-
-
-def pickGifts(gifts, max_gift):
-    gifts.append(int(math.sqrt(max_gift)))
-
-    return gifts
-
-
-def main():
-    k = 4
-    i = 1
-    while i <= k:
-        findmax(gifts)
-        i += 1
-    ans = sum(gifts)
-    return ans
-
-print(main())
+class Solution:
+    def pickGifts(self, gifts: [int], k: int) -> int:
+        i = 1
+        while i <= k:
+            max_gift = max(gifts)
+            if max_gift in gifts:
+                gifts.remove(max_gift)
+                gifts.append(int(math.sqrt(max_gift)))
+            max_gift = 0
+            i += 1
+        ans = sum(gifts)
+        return ans
+    
+ans = Solution()
+print(ans.pickGifts([25, 64, 9, 100, 4], 4))
