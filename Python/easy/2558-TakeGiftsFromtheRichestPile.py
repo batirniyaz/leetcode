@@ -1,6 +1,5 @@
 import math
 
-
 class Solution:
     def pickGifts(self, gifts: list[int], k: int) -> int:
         i = 1
