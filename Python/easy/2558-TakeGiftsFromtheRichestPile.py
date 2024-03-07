@@ -1,7 +1,7 @@
 import math
 
 class Solution:
-    def pickGifts(self, gifts: list[int], k: int) -> int:
+    def pickGifts(self, gifts: list[int], k: int) -> int: 
         i = 1
         while i <= k:
             max_gift = max(gifts)
